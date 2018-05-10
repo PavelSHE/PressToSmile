@@ -10,6 +10,7 @@ void init_wifi(String ssid,String password);
  * Configuration 
  */
 #define TELEGRAM_BUTTON_PIN D5
+#define SIGNAL_PIN D6
 #define BOT_TOKEN "551025608:AAEiyekDcm7rfPIyBAfevEFnNlhzr2t2SRE"  // Telegramm BOT token - BOT Father
 #define CHAT_ID "-221709366" // Chat ID of where the message will go
 char ssid[] = "MTA-Students";
@@ -26,6 +27,8 @@ char password[] = "";
 void setup() {
   Serial.begin(115200);
   pinMode(TELEGRAM_BUTTON_PIN, INPUT);
+  pinMode(SIGNAL_PIN, OUTPUT);
+  digitalWrite(SIGNAL_PIN, HIGH);
   attachInterrupt(TELEGRAM_BUTTON_PIN, telegramButtonPressed, RISING);
   //init_wifi("PS2H","20150423");
   WiFi.mode(WIFI_STA);
